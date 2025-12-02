@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arul Automation Solutions | Industrial Automation & Smart Manufacturing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Industrial automation, PLC programming, machine building and smart manufacturing solutions by Arul Automation Solutions."
+  />
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-card: #0f172a;
+      --primary: #22c55e;
+      --primary-soft: rgba(34, 197, 94, 0.12);
+      --accent: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2937;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --radius-xl: 18px;
+      --radius-xxl: 26px;
+      --transition-normal: 220ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Top Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(3, 7, 18, 0.95), rgba(3, 7, 18, 0.75), transparent);
+      border-bottom: 1px solid rgba(55, 65, 81, 0.45);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 25% 0, #22c55e, #0f172a 48%, #020617 100%);
+      box-shadow: 0 0 24px rgba(34, 197, 94, 0.55);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width var(--transition-normal);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-flex;
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.32), rgba(15, 23, 42, 0.96));
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+      text-decoration: none;
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 4.5rem 0 4.25rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 2.8rem;
+      }
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.2), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-kicker-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.7rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.6rem;
+      }
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #22c55e, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 24px rgba(34, 197, 94, 0.45);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-badge {
+      font-size: 0.72rem;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.8);
+      padding: 0.2rem 0.7rem;
+      color: var(--text-muted);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.3), rgba(15, 23, 42, 0.96));
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.4), rgba(15, 23, 42, 0.96));
+      border-color: rgba(34, 197, 94, 0.75);
+    }
+
+    .btn-primary:hover {
+      border-color: rgba(34, 197, 94, 1);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.85);
+      border-style: dashed;
+      border-color: rgba(75, 85, 99, 0.9);
+      box-shadow: none;
+    }
+
+    .hero-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+    }
+
+    .hero-meta strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Hero right card */
+    .hero-card {
+      border-radius: var(--radius-xxl);
+      padding: 1.1rem 1.1rem 1.25rem;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.28), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-chip {
+      font-size: 0.7rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: var(--text-muted);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .kpi-card {
+      border-radius: 14px;
+      padding: 0.55rem 0.7rem;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .kpi-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .kpi-pill {
+      font-size: 0.7rem;
+      color: #22c55e;
+    }
+
+    .kpi-pill.alert {
+      color: #f97316;
+    }
+
+    .hero-card-footer {
+      border-top: 1px dashed rgba(75, 85, 99, 0.85);
+      padding-top: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-footer span.dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-right: 0.3rem;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-card-orbit {
+      position: absolute;
+      inset: 58% -20% -20%;
+      opacity: 0.26;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0, rgba(56, 189, 248, 0.4), transparent 62%);
+      mix-blend-mode: screen;
+    }
+
+    section {
+      padding: 2.8rem 0 2.4rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.85);
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.38), transparent 52%);
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 0.7;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(56, 189, 248, 0.7);
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-soft);
+      margin-bottom: 0.55rem;
+      font-size: 1rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--text-muted);
+    }
+
+    .industries-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .industries-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.4rem 0.7rem;
+      border: 1px dashed rgba(75, 85, 99, 0.9);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .highlight-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.75);
+      margin-top: 1.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .highlight-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .highlight-bar strong {
+      color: var(--text-main);
+    }
+
+    .contact-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .contact-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .contact-panel {
+      border-radius: var(--radius-xl);
+      padding: 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-panel h3 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-panel p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-list span.label {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.12rem;
+      display: inline-block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 0.5rem 0.6rem;
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
+      resize: vertical;
+      min-height: 38px;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+      background: #020617;
+    }
+
+    textarea {
+      min-height: 92px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.85);
+      padding: 1rem 0 1.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    footer .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    @media (min-width: 640px) {
+      footer .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="logo-circle">A</div>
+            <div class="brand-text">
+              <div class="brand-name">Arul Automation Solutions</div>
+              <div class="brand-tagline">Industrial Automation & Smart Manufacturing</div>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#industries">Industries</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <a href="https://wa.me/918098926799" class="btn nav-cta">
+            <span class="icon">💬</span>
+            <span>WhatsApp Now</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-kicker">
+                <span class="hero-kicker-dot"></span>
+                On-site & remote projects across India
+              </div>
+              <h1 class="hero-title">
+                Smart automation for
+                <span class="highlight">reliable, scalable manufacturing.</span>
+              </h1>
+              <p class="hero-subtitle">
+                I help factories upgrade existing machines and build new automated systems using PLCs, sensors,
+                robotics and IIoT — with a focus on performance, uptime and safety.
+              </p>
+
+              <div class="hero-badges">
+                <div class="hero-badge">7+ years in special purpose machines</div>
+                <div class="hero-badge">Design → Programming → Commissioning</div>
+                <div class="hero-badge">RFID · Vision · Testing Automation</div>
+              </div>
+
+              <div class="hero-cta-row">
+                <a href="#contact" class="btn btn-primary">
+                  <span class="icon">⚙️</span>
+                  <span>Schedule a project discussion</span>
+                </a>
+                <a href="#services" class="btn btn-ghost">
+                  <span class="icon">📋</span>
+                  <span>View core services</span>
+                </a>
+              </div>
+
+              <div class="hero-meta">
+                <span><strong>Response time:</strong> typically within 24 hours</span>
+                <span><strong>Engagements:</strong> one-time projects or long-term support</span>
+              </div>
+            </div>
+
+            <!-- Hero right metrics card -->
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Live Automation Snapshot</div>
+                <div class="hero-card-chip">Real factory KPIs I optimise</div>
+              </div>
+
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">Cycle Time Reduction</div>
+                  <div class="kpi-value">15–40%</div>
+                  <div class="kpi-pill">through better motion & logic</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Machine Uptime</div>
+                  <div class="kpi-value">> 98%</div>
+                  <div class="kpi-pill">with robust PLC programs</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Downtime Events</div>
+                  <div class="kpi-value">↓ 50%</div>
+                  <div class="kpi-pill alert">via root-cause based redesign</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Operator Errors</div>
+                  <div class="kpi-value">↓ 60%</div>
+                  <div class="kpi-pill">using Poka-Yoke & HMI UX</div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                <span><span class="dot"></span>Available for new projects</span>
+                <span>On-site support: Chennai & nearby | Remote: PAN India</span>
+              </div>
+
+              <div class="hero-card-orbit"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Services</div>
+            <h2 class="section-title">End-to-end Industrial Automation & Integration</h2>
+            <p class="section-desc">
+              From retrofitting existing machines to designing complete test rigs, I provide practical automation
+              solutions that improve throughput, consistency and traceability.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <div class="card">
+              <div class="card-icon">🧠</div>
+              <h3 class="card-title">PLC & HMI Programming</h3>
+              <p class="card-text">
+                Robust, maintainable logic design for new machines and upgrades, with clear alarms and diagnostics
+                to reduce troubleshooting time.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Omron</span>
+                <span class="card-tag">Siemens</span>
+                <span class="card-tag">Allen-Bradley</span>
+                <span class="card-tag">Sysmac Studio</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🏗️</div>
+              <h3 class="card-title">Special Purpose Machine Design</h3>
+              <p class="card-text">
+                Concept to commissioning support for testing stations, assembly lines and fixtures – mechanical
+                layout, motion sizing and safety.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Concept design</span>
+                <span class="card-tag">3D modelling</span>
+                <span class="card-tag">Motor sizing</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">📡</div>
+              <h3 class="card-title">RFID / Barcode Traceability</h3>
+              <p class="card-text">
+                Integration of RFID readers, scanners and custom software to ensure every product and test result is
+                logged and traceable.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">RFID readers</span>
+                <span class="card-tag">Serial / TCP</span>
+                <span class="card-tag">Database logging</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">📊</div>
+              <h3 class="card-title">Testing & Measurement Automation</h3>
+              <p class="card-text">
+                Automated test benches with data acquisition, limits checking and result export to ERP/MES or custom
+                dashboards.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Python</span>
+                <span class="card-tag">Lab-style GUIs</span>
+                <span class="card-tag">Report generation</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🌐</div>
+              <h3 class="card-title">IIoT & Remote Monitoring</h3>
+              <p class="card-text">
+                Connect machines to the cloud for real-time production monitoring, energy tracking and predictive
+                maintenance.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">MQTT</span>
+                <span class="card-tag">Dashboards</span>
+                <span class="card-tag">Alerts</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-icon">🛡️</div>
+              <h3 class="card-title">Safety & Reliability Upgrades</h3>
+              <p class="card-text">
+                Review and upgrade of existing lines for interlocks, emergency circuits and error-proofing to meet
+                internal and customer safety requirements.
+              </p>
+              <div class="card-tags">
+                <span class="card-tag">Poka-Yoke</span>
+                <span class="card-tag">Safety relays</span>
+                <span class="card-tag">Standards-minded</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-bar">
+            <span>
+              <strong>Not sure what you need yet?</strong>
+              Share your current machine photos or cycle-time issues — I’ll suggest practical, low-risk automation
+              improvements first.
+            </span>
+            <a href="#contact" class="btn btn-primary">
+              <span class="icon">📎</span>
+              <span>Send a requirement</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- INDUSTRIES -->
+      <section id="industries">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Industries</div>
+            <h2 class="section-title">Where my automation work creates impact</h2>
+            <p class="section-desc">
+              I specialise in high-mix, high-precision environments where downtime, rework and traceability are
+              critical.
+            </p>
+          </div>
+
+          <div class="industries-grid">
+            <div class="pill">Automotive & Tier-1 suppliers</div>
+            <div class="pill">Electrical & electronics assembly</div>
+            <div class="pill">Battery & energy systems</div>
+            <div class="pill">Consumer appliances</div>
+            <div class="pill">Test rigs & validation labs</div>
+            <div class="pill">Material handling & packing</div>
+            <div class="pill">Custom SPM builders</div>
+            <div class="pill">Educational / R&D labs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">Hi, I’m Arul — an automation engineer who loves building machines that just work.</h2>
+            <p class="section-desc">
+              With 7+ years in special purpose machine design and industrial automation, I’ve worked across concept
+              design, PLC/HMI programming, electrical integration and final commissioning.
+            </p>
+          </div>
+
+          <div class="highlight-bar">
+            <span>
+              <strong>How I work:</strong> understand the real production problem → propose 1–2 practical options →
+              implement with clean documentation → support during ramp-up.
+            </span>
+            <span>
+              <strong>Engagement model:</strong> project-based, per-day on-site support, or long-term retainer for
+              continuous improvements.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Let’s discuss your automation requirement</h2>
+            <p class="section-desc">
+              Share a short description of your machine or process. I’ll get back with questions, possible
+              approaches and an approximate budget range.
+            </p>
+          </div>
+
+          <div class="contact-layout">
+            <div class="contact-panel">
+              <h3>Direct Contact</h3>
+              <p>Use any of the channels below to reach me quickly.</p>
+              <ul class="contact-list">
+                <li>
+                  <span class="label">Email</span><br />
+                  <a href="mailto:extradhand1997@gmail.com">extradhand1997@gmail.com</a>
+                </li>
+                <li>
+                  <span class="label">Phone / WhatsApp</span><br />
+                  <a href="https://wa.me/918098926799">+91-8098926799</a>
+                </li>
+                <li>
+                  <span class="label">Location</span><br />
+                  Based in Chennai · Available for PAN India projects
+                </li>
+              </ul>
+
+              <a href="https://wa.me/918098926799" class="btn btn-primary">
+                <span class="icon">💬</span>
+                <span>Start WhatsApp chat</span>
+              </a>
+            </div>
+
+            <div class="contact-panel">
+              <h3>Quick Requirement Form</h3>
+              <p>Fill this form and I’ll respond with clarifications and next steps.</p>
+
+              <!-- This form uses mailto. Replace with backend later if needed -->
+              <form action="mailto:extradhand1997@gmail.com" method="post" enctype="text/plain">
+                <div>
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" name="Name" placeholder="Your full name" required />
+                </div>
+
+                <div>
+                  <label for="company">Company / Plant</label>
+                  <input type="text" id="company" name="Company" placeholder="Company / Plant name" />
+                </div>
+
+                <div>
+                  <label for="email">Work email</label>
+                  <input type="email" id="email" name="Email" placeholder="you@company.com" required />
+                </div>
+
+                <div>
+                  <label for="phone">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="Phone" placeholder="+91-8098926799" />
+                </div>
+
+                <div>
+                  <label for="details">Brief about your requirement</label>
+                  <textarea
+                    id="details"
+                    name="Requirement"
+                    placeholder="Example: Need an end-of-line tester for XYZ product with barcode/RFID traceability…"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                  <span class="icon">📨</span>
+                  <span>Send requirement</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <span>© <span id="year"></span> Arul Automation Solutions. All rights reserved.</span>
+          <div class="footer-links">
+            <a href="#top">Back to top ↑</a>
+            <span>•</span>
+            <span>Industrial Automation & Smart Manufacturing Solutions</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
